@@ -184,41 +184,103 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
     }
 
     .card {
       background: var(--white);
-      border-radius: 16px;
-      padding: 2rem 1.6rem;
+      border-radius: 20px;
+      padding: 2.4rem 2rem;
       box-shadow: 0 2px 20px rgba(26,26,46,0.06);
       border: 1px solid rgba(26,26,46,0.06);
       transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
     }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--maple);
+    }
+    .card.secondary::before { background: var(--gold); }
     .card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(26,26,46,0.1); }
 
-    .card-icon {
-      width: 48px; height: 48px;
+    .card-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
       background: var(--maple-light);
-      border-radius: 12px;
+      color: var(--maple);
+    }
+    .card.secondary .card-badge {
+      background: #FDF6E3;
+      color: #9A7000;
+    }
+
+    .card-icon {
+      width: 56px; height: 56px;
+      background: var(--maple-light);
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 1.2rem;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
     }
+    .card.secondary .card-icon { background: #FDF6E3; }
 
     .card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
       color: var(--ink);
     }
 
+    .card-tagline {
+      font-size: 0.88rem;
+      color: var(--maple);
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+    }
+    .card.secondary .card-tagline { color: #9A7000; }
+
     .card p {
       font-size: 0.9rem;
-      color: #666;
-      line-height: 1.6;
+      color: #555;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
     }
+
+    .card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .card-list li {
+      font-size: 0.88rem;
+      color: #444;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .card-list li::before {
+      content: '✓';
+      color: var(--maple);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .card.secondary .card-list li::before { color: var(--gold); }
 
     /* ── BOOKING SECTION ─────────────────────── */
     .booking-section {
@@ -445,26 +507,40 @@
   <h2 class="section-title">Un accompagnement complet,<br>à chaque étape</h2>
 
   <div class="cards">
+
+    <!-- Arrivio Guide -->
     <div class="card">
-      <div class="card-icon">🏠</div>
-      <h3>Logement</h3>
-      <p>Aide pour trouver un logement, comprendre les baux et vos droits de locataire au Nouveau-Brunswick.</p>
+      <span class="card-badge">⭐ Service phare</span>
+      <div class="card-icon">🧭</div>
+      <h3>Arrivio Guide</h3>
+      <p class="card-tagline">Un guide de proximité issu de votre communauté</p>
+      <p>Dès votre arrivée, un guide culturel vous accueille et vous accompagne physiquement dans toutes vos premières démarches à Moncton.</p>
+      <ul class="card-list">
+        <li>Accueil à l'aéroport ou à la gare</li>
+        <li>Transport vers votre logement temporaire</li>
+        <li>Accompagnement pour l'obtention du NAS</li>
+        <li>Ouverture d'un compte bancaire</li>
+        <li>Inscription aux services téléphoniques</li>
+        <li>Courses de première nécessité (épicerie, pharmacie, meubles)</li>
+        <li>Inscription scolaire des enfants</li>
+      </ul>
     </div>
-    <div class="card">
-      <div class="card-icon">📋</div>
-      <h3>Démarches administratives</h3>
-      <p>NAS, carte d'assurance maladie, permis de conduire, ouverture de compte bancaire et plus encore.</p>
+
+    <!-- Arrivio FlexMove -->
+    <div class="card secondary">
+      <span class="card-badge">🚐 Service secondaire</span>
+      <div class="card-icon">🚗</div>
+      <h3>Arrivio FlexMove</h3>
+      <p class="card-tagline">Transport interurbain & déménagement</p>
+      <p>Une solution de mobilité flexible pour vos déplacements et votre installation, partout dans la région du Grand Moncton et au-delà.</p>
+      <ul class="card-list">
+        <li>Covoiturage interurbain (Poparide, Amigo Express)</li>
+        <li>Location de véhicule pour déménagement local</li>
+        <li>Partenariat U-Haul pour grands déménagements</li>
+        <li>Aide au transport de meubles et effets personnels</li>
+      </ul>
     </div>
-    <div class="card">
-      <div class="card-icon">💼</div>
-      <h3>Emploi & Intégration</h3>
-      <p>Orientation vers les ressources d'emploi, reconnaissance des diplômes et réseautage communautaire.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🌍</div>
-      <h3>Vie communautaire</h3>
-      <p>Connexion avec les associations, événements culturels et réseaux d'entraide à Moncton, Dieppe et Riverview.</p>
-    </div>
+
   </div>
 </section>
 
@@ -523,11 +599,10 @@
             <label>Type d'accompagnement *</label>
             <select id="service" required>
               <option value="" disabled selected>Choisir un service…</option>
-              <option value="Logement">🏠 Logement</option>
-              <option value="Démarches administratives">📋 Démarches administratives</option>
-              <option value="Emploi et intégration">💼 Emploi &amp; Intégration</option>
-              <option value="Vie communautaire">🌍 Vie communautaire</option>
-              <option value="Autre">❓ Autre / Je ne sais pas encore</option>
+              <option value="Arrivio Guide">🧭 Arrivio Guide – Accompagnement à l'arrivée</option>
+              <option value="Arrivio FlexMove">🚗 Arrivio FlexMove – Transport & déménagement</option>
+              <option value="Les deux services">✨ Les deux services</option>
+              <option value="Je ne sais pas encore">❓ Je ne sais pas encore</option>
             </select>
           </div>
 
