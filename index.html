@@ -486,9 +486,9 @@
   </svg>
 
   <div class="hero-content">
-    <div class="badge">🍁 Grand Moncton · Nouveau-Brunswick</div>
+    <div class="badge">🍁 Canada</div>
     <h1>Arri<em>vio</em></h1>
-    <p class="hero-tagline">Simplifier votre arrivée au Canada.<br>Accompagnement communautaire pour les nouveaux arrivants du Grand Moncton.</p>
+    <p class="hero-tagline">Simplifier votre arrivée au Canada.<br>Accompagnement communautaire pour les nouveaux arrivants.</p>
     <a href="#reservation" class="hero-cta">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Réserver un accompagnement
@@ -514,8 +514,8 @@
       <div class="card-icon">🧭</div>
       <h3>Arrivio Guide</h3>
       <p class="card-tagline">Un guide de proximité issu de votre communauté</p>
-      <p>Dès votre arrivée, un guide culturel vous accueille et vous accompagne physiquement dans toutes vos premières démarches à Moncton.</p>
-      <ul class="card-list">
+      <p>Dès votre arrivée, nous vous accueillons et vous accompagnons physiquement dans toutes vos premières démarches.</p>
+      <!-- <ul class="card-list">
         <li>Accueil à l'aéroport ou à la gare</li>
         <li>Transport vers votre logement temporaire</li>
         <li>Accompagnement pour l'obtention du NAS</li>
@@ -523,7 +523,7 @@
         <li>Inscription aux services téléphoniques</li>
         <li>Courses de première nécessité (épicerie, pharmacie, meubles)</li>
         <li>Inscription scolaire des enfants</li>
-      </ul>
+      </ul> -->
     </div>
 
     <!-- Arrivio FlexMove -->
@@ -533,12 +533,12 @@
       <h3>Arrivio FlexMove</h3>
       <p class="card-tagline">Transport interurbain & déménagement</p>
       <p>Une solution de mobilité flexible pour vos déplacements et votre installation, partout dans la région du Grand Moncton et au-delà.</p>
-      <ul class="card-list">
+      <!-- <ul class="card-list">
         <li>Covoiturage interurbain (Poparide, Amigo Express)</li>
         <li>Location de véhicule pour déménagement local</li>
         <li>Partenariat U-Haul pour grands déménagements</li>
         <li>Aide au transport de meubles et effets personnels</li>
-      </ul>
+      </ul> -->
     </div>
 
   </div>
@@ -574,6 +574,8 @@
         <h3 class="form-title">Formulaire de réservation</h3>
 
         <form id="reservationForm" onsubmit="envoyerReservation(event)">
+
+          <!-- Ligne 1 : Prénom / Nom -->
           <div class="form-row">
             <div class="form-group">
               <label>Prénom *</label>
@@ -585,15 +587,23 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label>Téléphone / WhatsApp *</label>
-            <input type="tel" id="tel" placeholder="+1 506 000 0000" required />
+          <!-- Ligne 2 : Téléphone / Date -->
+          <div class="form-row">
+            <div class="form-group">
+              <label>Téléphone / WhatsApp *</label>
+              <input type="tel" id="tel" placeholder="+1 506 000 0000" required />
+            </div>
+            <div class="form-group">
+              <label>Date d'arrivée *</label>
+              <input type="date" id="date" required />
+            </div>
           </div>
 
-          <div class="form-group">
+          <!-- Ligne 3 : Service (pleine largeur) -->
+          <!-- <div class="form-group">
             <label>Courriel</label>
             <input type="email" id="email" placeholder="marie@exemple.com" />
-          </div>
+          </div> -->
 
           <div class="form-group">
             <label>Type d'accompagnement *</label>
@@ -606,19 +616,38 @@
             </select>
           </div>
 
-          <div class="form-group">
-            <label>Date souhaitée</label>
-            <input type="date" id="date" />
+          <!-- Ligne 4 : Adultes / Enfants -->
+          <div class="form-row">
+            <div class="form-group">
+              <label>Adultes *</label>
+              <input type="number" id="nbPersonnes" min="1" placeholder="Ex: 2" required />
+            </div>
+            <div class="form-group">
+              <label>Enfants *</label>
+              <input type="number" id="nbEnfants" min="0" placeholder="Ex: 1 (0 si aucun)" required />
+            </div>
           </div>
 
+          <!-- Ligne 5 : Destination / Pays d'origine -->
+          <div class="form-row">
+            <div class="form-group">
+              <label>Destination au Canada *</label>
+              <input type="text" id="destinationCanada" placeholder="Moncton, Toronto…" required />
+            </div>
+            <div class="form-group">
+              <label>Pays d'origine *</label>
+              <input type="text" id="paysOrigine" placeholder="France, Maroc, Cameroun…" required />
+            </div>
+          </div>
+
+          <!-- Message (pleine largeur) -->
           <div class="form-group">
             <label>Message (optionnel)</label>
             <textarea id="message" placeholder="Décrivez brièvement votre situation ou vos besoins…"></textarea>
           </div>
 
           <button type="submit" class="btn-submit">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.122 1.528 5.855L.057 23.882a.5.5 0 0 0 .61.61l6.043-1.471A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.882 0-3.643-.5-5.163-1.375l-.369-.218-3.825.931.945-3.728-.24-.385A9.944 9.944 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-            Envoyer via WhatsApp
+            Envoyer
           </button>
         </form>
 
@@ -634,14 +663,14 @@
 <!-- ── FOOTER ─────────────────────────────────── -->
 <footer>
   <p><strong>Arrivio</strong> — Simplifier votre arrivée au Canada</p>
-  <p style="margin-top:0.4rem;">Grand Moncton (Moncton · Dieppe · Riverview) · Nouveau-Brunswick · Canada</p>
+  <p style="margin-top:0.4rem;">Canada</p>
 </footer>
 
 <!-- ── SCRIPT ─────────────────────────────────── -->
 <script>
   // ── CONFIGURATION ─────────────────────────────
   // 👇 Remplacez par votre vrai numéro WhatsApp (format international, sans +)
-  const WHATSAPP_NUMBER = "15060000000";
+  const WHATSAPP_NUMBER = "15065015212";
   // ─────────────────────────────────────────────
 
   const waBase = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -669,23 +698,63 @@
     const email    = document.getElementById("email").value.trim();
     const service  = document.getElementById("service").value;
     const date     = document.getElementById("date").value;
+    const nbPersonnes = document.getElementById("nbPersonnes").value.trim();
+    const nbEnfants   = document.getElementById("nbEnfants").value.trim();
+    const destinationCanada = document.getElementById("destinationCanada").value.trim();
+    const paysOrigine       = document.getElementById("paysOrigine").value.trim();
     const message  = document.getElementById("message").value.trim();
+
+    if (!prenom || !nom || !tel || !service || !date) {
+    alert("Veuillez remplir les champs obligatoires : Prénom, Nom, Téléphone, Service et Date !");
+      return;
+      }
+    if (!nbPersonnes || parseInt(nbPersonnes) < 1) {
+      alert("Veuillez indiquer le nombre de personnes (au moins 1).");
+      return;
+    }
+    if (nbEnfants === "" || parseInt(nbEnfants) < 0) {
+      alert("Veuillez indiquer le nombre d'enfants (0 si aucun).");
+      return;
+    }
+    if (!destinationCanada) {
+      alert("Veuillez indiquer votre destination au Canada.");
+      return;
+    }
+    if (!paysOrigine) {
+      alert("Veuillez indiquer votre pays d'origine.");
+      return;
+    }
 
     let msg = `🍁 *Nouvelle réservation Arrivio*\n\n`;
     msg += `👤 *Nom :* ${prenom} ${nom}\n`;
     msg += `📞 *Tél :* ${tel}\n`;
     if (email) msg += `📧 *Courriel :* ${email}\n`;
     msg += `📋 *Service :* ${service}\n`;
-    if (date) msg += `📅 *Date souhaitée :* ${date}\n`;
+    msg += `📅 *Date d'arrivée :* ${date}\n`;
+    msg += `👥 *Nombre de personnes (adultes) :* ${nbPersonnes}\n`;
+    msg += `👶 *Nombre d'enfants :* ${nbEnfants}\n`;
+    msg += `📍 *Destination au Canada :* ${destinationCanada}\n`;
+    msg += `🌍 *Pays d'origine :* ${paysOrigine}\n`;
     if (message) msg += `\n💬 *Message :*\n${message}`;
 
     const encoded = encodeURIComponent(msg);
     const url = `${waBase}?text=${encoded}`;
 
-    document.getElementById("toast").style.display = "block";
-    setTimeout(() => { window.open(url, "_blank"); }, 600);
-    document.getElementById("reservationForm").reset();
-    setTimeout(() => { document.getElementById("toast").style.display = "none"; }, 4000);
+    const toast = document.getElementById("toast");
+    toast.style.display = "block";
+    
+    setTimeout(() => {
+      window.location.href = url;
+    }, 400);
+    
+   //  document.getElementById("reservationForm").reset();
+   //  setTimeout(() => { toast.style.display = "none"; }, 5000);
+
+   //  document.getElementById("toast").style.display = "block";
+   //  window.location.href = url
+   // // setTimeout(() => { window.open(url, "_blank"); }, 600);
+   //  document.getElementById("reservationForm").reset();
+   //  setTimeout(() => { document.getElementById("toast").style.display = "none"; }, 4000);
   }
 </script>
 
